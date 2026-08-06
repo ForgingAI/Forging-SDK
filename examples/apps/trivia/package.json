@@ -1,0 +1,27 @@
+{
+  "name": "@forging/app-trivia",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Trivia — reference multiplayer app validating the @forging/rooms SDK and the polymorphic room shell.",
+  "type": "module",
+  "main": "./src/index.tsx",
+  "exports": {
+    ".": {
+      "types": "./src/index.tsx",
+      "import": "./src/index.tsx"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@forging/rooms": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "~5.9.3"
+  }
+}

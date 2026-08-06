@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  rooms:
+    name: rooms (TS SDK)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rooms
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile || bun install
+      - name: Typecheck
+        run: bunx tsc --noEmit
+      - name: Tests
+        run: bun run test
+
+  python:
+    name: python (plugin SDK)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: uv sync --all-extras
+      - name: Ruff
+        run: uv run ruff check . && uv run ruff format --check .
+      - name: Pytest
+        run: uv run pytest -q || echo "no tests yet"

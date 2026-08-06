@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnp.*
+.yarn/
+.venv/
+venv/
+
+# Build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Bun / uv
+.bun/
+.uv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+
+# Editor / OS
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Logs
+*.log

@@ -1,0 +1,11 @@
+[plugin]
+name = "{{ name }}"
+version = "0.1.0"
+description = "{{ description }}"
+author = "{{ author }}"
+license = "MIT"
+min_forging_version = "0.2.0"
+
+[plugin.hooks]
+events = ["module.installed", "module.published"]
+handler = "{{ module_name }}.hooks:on_event"

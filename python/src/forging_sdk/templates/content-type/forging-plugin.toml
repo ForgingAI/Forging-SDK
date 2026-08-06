@@ -1,0 +1,18 @@
+[plugin]
+name = "{{ name }}"
+version = "0.1.0"
+description = "{{ description }}"
+author = "{{ author }}"
+license = "MIT"
+min_forging_version = "0.2.0"
+
+[plugin.content_types.{{ type_key }}]
+pipeline_id = "{{ type_key }}-gen-v1"
+token_cost = 5
+max_generation_time_s = 60
+artifact_kinds = ["inline_base64"]
+description = "{{ description }}"
+
+[plugin.frontend]
+entry = "src/index.ts"
+content_types = ["{{ type_key }}"]

@@ -1,0 +1,6 @@
+name = "notes"
+version = "1.0"
+intents = ["take a note", "list my notes"]
+top_level_entry = "demo_notes:register"
+subagent_entry = "demo_notes:register"
+tools = ["save_note", "list_notes"]

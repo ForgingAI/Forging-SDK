@@ -1,0 +1,6 @@
+name = "calc"
+version = "1.0"
+intents = ["do math", "calculate something"]
+top_level_entry = "demo_calc:register"
+subagent_entry = "demo_calc:register"
+tools = ["calculate"]
